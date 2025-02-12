@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+</head>
+<body>
+    <h1>Profile Dashboard</h1>
+
+    <% if (user) { %>
+        <p>
+            Welcome <%= user.nickname %>, you are logged in!
+        </p>
+
+        <img src="<%= user.picture %>" alt="<%= user.username %>">
+
+        <br>
+
+        <form action="/logout" method="post">
+            <button type="submit">logout</button>
+        </form>
+
+        <% } else { %>
+            <p>Please <a href="/login">login</a>to see your dashboard</p>
+             
+        <% } %>
+
+
+    
+</body>
+</html>
