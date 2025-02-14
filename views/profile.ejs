@@ -1,32 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Profile Page</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Profile Dashboard</h1>
 
     <% if (user) { %>
-        <p>
-            Welcome <%= user.nickname %>, you are logged in!
-        </p>
+    <p>Welcome <%= user.name || user.nickname %>, you are logged in!</p>
 
-        <img src="<%= user.picture %>" alt="<%= user.username %>">
+    <!-- <img src="<%= user.picture %>" alt="<%= user.username %>"> -->
+    <img
+      src="<%= user.picture %>"
+      alt="Profile Picture"
+      width="150"
+      style="border-radius: 50%"
+    />
 
-        <br>
+    <br />
 
-        <form action="/logout" method="post">
-            <button type="submit">logout</button>
-        </form>
+    <a href="/logout">
+      <button>Logout</button>
+    </a>
 
-        <% } else { %>
-            <p>Please <a href="/login">login</a>to see your dashboard</p>
-             
-        <% } %>
+    <% } else { %>
+    <p>Please <a href="/login">login</a> to see your dashboard.</p>
 
-
-    
-</body>
+    <% } %>
+  </body>
 </html>
